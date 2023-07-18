@@ -14,11 +14,9 @@ public class ClienteListResponse {
 	private String cpf;
 	private String email;
 	private String celular;
-	
+
 	public static List<ClienteListResponse> converte(List<Cliente> clientes) {
-		return clientes.stream()
-				.map(ClienteListResponse::new)
-				.collect(Collectors.toList());
+		return clientes.stream().map(ClienteListResponse::new).collect(Collectors.toList());
 	}
 
 	private ClienteListResponse(Cliente cliente) {
@@ -28,5 +26,5 @@ public class ClienteListResponse {
 		this.email = cliente.getEmail();
 		this.celular = cliente.getCelular();
 	}
-	
+
 }
