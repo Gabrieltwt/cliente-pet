@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.petz.clientepet.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.petz.clientepet.pet.application.service.PetService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,7 @@ public class PetController implements PetAPI {
 		log.info("[finaliza] PetController - postPet");
 		return pet;
 	}
+	
 	@Override
 	public List<PetClienteListResponse> getPetsDoClienteComId(UUID idCliente) {
 		log.info("[inicia] PetController - getPetsDoClienteComId");
@@ -30,6 +32,14 @@ public class PetController implements PetAPI {
 		List<PetClienteListResponse> petsDoCliente = petService.buscaPetsDoClienteComID(idCliente);
 		log.info("[finaliza] PetController - getPetsDoClienteComId");
 		return petsDoCliente;
+	}
+	
+	@Override
+	public ClienteDetalhadoResponse getClienteAtravesId(UUID idCliente, UUID idPet) {
+		log.info("[inicia] PetController - ClienteDetalhadoResponse");
+		log.info("[idCliente] {} - [idPet] {}", idCliente, idPet);
+		log.info("[finaliza] PetController - ClienteDetalhadoResponse");
+		return null;
 	}
 
 }
