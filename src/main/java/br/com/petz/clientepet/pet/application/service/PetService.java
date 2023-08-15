@@ -10,10 +10,8 @@ import br.com.petz.clientepet.pet.application.api.PetResponse;
 import jakarta.validation.Valid;
 
 public interface PetService {
-
 	PetResponse criaPet(UUID idCliente, @Valid PetRequest petRequest);
 	List<PetClienteListResponse> buscaPetsDoClienteComID(UUID idCliente);
-	PetClienteListResponse buscaPetDoClienteComID(UUID idCliente, UUID idPet);
-	PetClienteDetalheResponse buscaPetsDoClienteComID(UUID idCliente, UUID idPet);
+	PetClienteDetalheResponse buscaPetDoClienteComID(UUID idCliente, UUID idPet);
 
 }
