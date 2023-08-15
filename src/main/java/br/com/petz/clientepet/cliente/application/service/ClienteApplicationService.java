@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import br.com.petz.clientepet.cliente.application.api.ClienteAlteracaoRequest;
-import br.com.petz.clientepet.cliente.application.api.ClienteDetalhadoResponse;
+import br.com.petz.clientepet.cliente.application.api.PetClienteDetalheResponse;
 import br.com.petz.clientepet.cliente.application.api.ClienteListResponse;
 import br.com.petz.clientepet.cliente.application.api.ClienteRequest;
 import br.com.petz.clientepet.cliente.application.api.ClienteResponse;
@@ -38,11 +38,11 @@ public class ClienteApplicationService implements ClienteService {
 	}
 
 	@Override
-	public ClienteDetalhadoResponse buscaClienteAtravesId(UUID idCliente) {
+	public PetClienteDetalheResponse buscaClienteAtravesId(UUID idCliente) {
 		log.info("[inicia] ClienteApplicationService - buscaClienteAtravesId");
 		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
 		log.info("[finaliza] ClienteApplicationService - buscaClienteAtravesId");
-		return new ClienteDetalhadoResponse(cliente);
+		return new PetClienteDetalheResponse(cliente);
 	}
 
 	@Override

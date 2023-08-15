@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.petz.clientepet.cliente.application.api.ClienteDetalhadoResponse;
+import br.com.petz.clientepet.cliente.application.api.PetClienteDetalheResponse;
 import br.com.petz.clientepet.pet.application.service.PetService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -16,15 +16,16 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class PetController implements PetAPI {
 	private final PetService petService;
+
 	@Override
 	public PetResponse postPet(UUID idCliente, @Valid PetRequest petRequest) {
 		log.info("[inicia] PetController - postPet");
 		log.info("[idCliente] {}", idCliente);
-		PetResponse pet = petService.criaPet(idCliente,petRequest);
+		PetResponse pet = petService.criaPet(idCliente, petRequest);
 		log.info("[finaliza] PetController - postPet");
 		return pet;
 	}
-	
+
 	@Override
 	public List<PetClienteListResponse> getPetsDoClienteComId(UUID idCliente) {
 		log.info("[inicia] PetController - getPetsDoClienteComId");
@@ -33,12 +34,12 @@ public class PetController implements PetAPI {
 		log.info("[finaliza] PetController - getPetsDoClienteComId");
 		return petsDoCliente;
 	}
-	
+
 	@Override
-	public ClienteDetalhadoResponse getClienteAtravesId(UUID idCliente, UUID idPet) {
-		log.info("[inicia] PetController - ClienteDetalhadoResponse");
+	public PetClienteDetalheResponse getPetDoClienteComId(UUID idCliente, UUID idPet) {
+		log.info("[inicia] PetController - getPetDoClienteComId");
 		log.info("[idCliente] {} - [idPet] {}", idCliente, idPet);
-		log.info("[finaliza] PetController - ClienteDetalhadoResponse");
+		log.info("[finaliza] PetController - getPetDoClienteComId");
 		return null;
 	}
 
